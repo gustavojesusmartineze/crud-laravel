@@ -23,9 +23,9 @@
                             <strong>{{ $product->name }}</strong>
                             {{ $product->short }}
                         </td>
-                        <td><a href="#" class="show-product">Show</a></td>
-                        <td><a href="#" class="edit-product">Edit</a></td>
-                        <td><a href="#" class="delete-product">Delete</a></td>
+                        <td><a href="{{ route('products.show',$product->id) }}" class="show-product">Show</a></td>
+                        <td><a href="{{ route('products.edit',$product->id) }}" class="edit-product">Edit</a></td>
+                        <td><a href="{{ route('products.destroy',$product->id) }}" class="delete-product">Delete</a></td>
                     </tr>
                 @endforeach
             </tbody>
