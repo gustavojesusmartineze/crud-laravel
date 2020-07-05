@@ -23,9 +23,19 @@
                             <strong>{{ $product->name }}</strong>
                             {{ $product->short }}
                         </td>
-                        <td><a href="{{ route('products.show',$product->id) }}" class="show-product">Show</a></td>
-                        <td><a href="{{ route('products.edit',$product->id) }}" class="edit-product">Edit</a></td>
-                        <td><a href="{{ route('products.destroy',$product->id) }}" class="delete-product">Delete</a></td>
+                        <td>
+                            <a href="{{ route('products.show',$product->id) }}" class="btn btn-link">Show</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('products.edit',$product->id) }}" class="btn btn-link">Edit</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-link">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
